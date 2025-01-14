@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import type { AngleSliderProps, Position } from "./angle-slider.types";
 
 const AngleSlider: React.FC<AngleSliderProps> = ({
