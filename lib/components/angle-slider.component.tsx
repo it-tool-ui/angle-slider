@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import React, { useCallback, useEffect, useRef } from "react";
 import type { AngleSliderProps, Position } from "./angle-slider.types";
+import { cn } from "../utils";
 
 const AngleSlider: React.FC<AngleSliderProps> = ({
   value = 0,
@@ -10,6 +10,10 @@ const AngleSlider: React.FC<AngleSliderProps> = ({
   max,
   size = "5rem",
   labelSize = "medium",
+  className,
+  barClassName,
+  backgroundClassName,
+  labelClassName,
   onChange,
   onEnd,
 }) => {
@@ -111,12 +115,18 @@ const AngleSlider: React.FC<AngleSliderProps> = ({
     <div
       ref={wrapperRef}
       style={{ width: size, height: size }}
-      className="relative flex items-center justify-end rounded-full bg-neutral-200 dark:bg-neutral-700"
+      className={cn(
+        "relative flex items-center justify-end rounded-full bg-neutral-200 dark:bg-neutral-700",
+        className
+      )}
     >
       <div
         ref={rotateBarRef}
         style={{ height: barThick }}
-        className="w-1/2 origin-left bg-neutral-700 dark:bg-neutral-200"
+        className={cn(
+          "w-1/2 origin-left bg-neutral-700 dark:bg-neutral-200",
+          barClassName
+        )}
       />
       <div className="absolute flex h-full w-full items-center justify-center bg-transparent">
         <div
@@ -124,20 +134,24 @@ const AngleSlider: React.FC<AngleSliderProps> = ({
             width: `${100 - barSizePercent}%`,
             height: `${100 - barSizePercent}%`,
           }}
-          className="rounded-full bg-neutral-200 dark:bg-neutral-700"
+          className={cn(
+            "rounded-full bg-neutral-200 dark:bg-neutral-700",
+            backgroundClassName
+          )}
         />
       </div>
       <div className="absolute flex h-full w-full items-center justify-center bg-transparent">
         <span
           ref={labelRef}
-          className={clsx(
+          className={cn(
             "select-none",
             { invisible: !showLabel },
             {
               "text-xs": labelSize === "small",
               "text-sm": labelSize === "medium",
               "text-lg": labelSize === "large",
-            }
+            },
+            labelClassName
           )}
         >
           {value}

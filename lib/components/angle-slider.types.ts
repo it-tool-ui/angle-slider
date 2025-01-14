@@ -13,6 +13,10 @@ export interface AngleSliderProps {
   barSizePercent?: number;
   barThick?: string | number;
   labelSize?: LabelSize;
+  className?: string;
+  barClassName?: string;
+  backgroundClassName?: string;
+  labelClassName?: string;
   onChange?: (value: number) => void;
   onEnd?: (value: number) => void;
 }
