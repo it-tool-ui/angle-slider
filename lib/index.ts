@@ -1,5 +1,5 @@
 import "./index.css";
-import Button from "./components/button.component";
-import type { ButtonProps } from "./components/button.types";
+import AngleSlider from "./components/angle-slider.component";
+import type { AngleSliderProps } from "./components/angle-slider.types";
 
-export { Button, ButtonProps };
+export { AngleSlider, AngleSliderProps };
